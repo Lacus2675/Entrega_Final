@@ -1,0 +1,30 @@
+REPORTE DE STOCK BAJO (≤ 12 UNIDADES)
+CANTIDAD DE PRODUCTOS SIN STOCK   : 4
+TOTAL DE PRODUCTOS CON STOCK BAJO : 24
+
+ID     NOMBRE                           DESCRIPCION               CANTIDAD PRECIO       CATEGORIA      
+
+1207   Probando                         Probando                  0        $31.99        Insumos        
+1208   Probando                         Probando                  0        $31.99        Insumos        
+1209   Probando                         Probando                  0        $31.99        Insumos        
+1210   Probando                         Probando                  0        $31.99        Insumos        
+1231   dddddd                           ddddd                     1        $222.0        sdsd           
+1234   eee                              eee                       1        $22222222.0   dsdsd          
+1235   dsd                              ds                        2        $2.0          sdsd           
+1239   Disco HHD                        sas                       2        $2.0          asas           
+3      DISCO EXTERNO                    PRUEBA                    3        $24.5         Insumos Varios 
+7      Gabinete ATX                     Vidrio templado 3 fans    4        $75.0         Hardware       
+1201   Mouse                            Mouse Gamer               4        $31000.0      Insumos Gamer  
+1214   Probando                         Probando                  5        $31.99        Insumos        
+1215   Probando                         Probando                  5        $31.99        Insumos        
+1200   Webcam Full HD                   60 FPS con micrófono      7        $40.0         Periféricos    
+6      Disco SSD 1TB                    NVMe Gen4                 8        $120.0        Almacenamiento 
+150    Joystick Xbox                    Carbon Black              9        $65.0         Gaming         
+1      Monitor Gamer 24' 170Hz          144Hz IPS 1ms             10       $260.4        Monitores      
+1219   Prueba                           Descripción               10       $99.99        Categoría      
+1221   Disco                            SSD                       10       $20.5         Insumos Informaticos
+1222   Disco                            SSD                       10       $20.5         Insumos Informaticos
+1223   Disco                            SSD                       10       $20.5         Insumos Informaticos
+1226   Teclado gamer                    teclados                  10       $45.0         insumos informaticos
+1225   ddd                              ddd                       12       $23.0         sasas          
+1233   qqq                              qqq                       12       $2323.0       dds            
