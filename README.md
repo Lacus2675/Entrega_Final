@@ -1,2 +1,9 @@
 # Entrega_Final
 Proyecto Entrega final
+
+Modulos a instalar :
+
+sqlite3 (para las bases sqlite)
+os (uso para borrar pantalla)
+colorama (color en la consola)
+pathlib (al buscar un archivo directamente tube problemas , investigue y este modulo permite buscarlos en cualquier patch sin ningun problema)
