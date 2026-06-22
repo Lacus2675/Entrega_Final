@@ -1,6 +1,8 @@
 import os
+from sqlite3 import Connection
 from colorama import init, Fore, Style
 from modulos import *
+from conexion_db import db
 
 init(autoreset=True)
 
@@ -44,6 +46,8 @@ while True:
          reporte() 
     elif opcion == "0":
         print("\n¡Hasta luego!\n")
+        #cursor.close()
+        cursor.connection.close()
         break
     else:
         print("✗ Opción inválida. Intente de nuevo.")

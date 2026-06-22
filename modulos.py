@@ -1,13 +1,24 @@
-import sqlite3
 import os
 from pathlib import Path
+from sqlite3 import connect
 from colorama import Back, init, Fore, Style
+from conexion_db import db
+
+# Obtener el cursor (con manejo de errores)
+try:
+    cursor = db()
+except Exception as e:
+    print(f"Error al inicializar la base de datos: {e}")
+    input("Presione Enter para salir...")
+    exit(1)
+
 init(autoreset=True)
 os.system('cls')
 
-ruta_db = Path(__file__).parent / 'Bases_De_Datos' / 'inventario1.db'   
-conn = sqlite3.connect(ruta_db)
-cursor = conn.cursor()
+#ruta_db = Path(__file__).parent / 'Bases_De_Datos' / 'inventario.db'   
+#conn = sqlite3.connect(ruta_db)
+#cursor = conn.cursor()
+    
 
 def mostrar_productos():
     os.system('cls')
@@ -184,7 +195,9 @@ def insertar_producto():
             INSERT INTO productos (nombre, descripcion, cantidad, precio, categoria)
             VALUES (?, ?, ?, ?, ?)
         ''', (nombre.strip(), descripcion.strip(), cantidad, precio, categoria.strip()))
-        conn.commit()
+        #conn.commit()
+        cursor.connection.commit # al fin pude guardar era asi
+
 
         print("\n ✅ Producto agregado correctamente \n")
 
@@ -339,8 +352,8 @@ def actualizar_producto():
                     WHERE id = ?
                 ''', (nuevo_nombre, nueva_descripcion, nueva_cantidad, nuevo_precio, nueva_categoria, pro_id))
                 
-                conn.commit()
-                
+                cursor.connection.commit()
+
                 os.system("cls")
                 print("\n" + "="*50)
                 print(f"{Fore.GREEN}✅ ¡ACTUALIZACIÓN EXITOSA!")
@@ -414,7 +427,9 @@ def eliminar():
       
       if confirmar == 'S':
          cursor.execute('DELETE FROM productos WHERE id = ?', (dato,))
-         conn.commit()
+         #conn.commit()
+         cursor.connection.commit
+         
          print(f"\n{Fore.GREEN} SE ELIMINO EL PRODUCTO CORRECTAMENTE.\n")
          input("\nPRECIONE ENTER PARA CONTINUAR")
       elif confirmar == 'N':
@@ -537,11 +552,7 @@ def reporte():
 
     init(autoreset=True)
     os.system("cls")
-    ruta_db = Path(__file__).parent / 'Bases_De_Datos' / 'inventario1.db'
-    conexion = sqlite3.connect(ruta_db)
-    cursor = conexion.cursor()
-
-    #limite = int(input("\nINGRESE LA CONSIDERACION DE STOCK BAJO: "))
+        #limite = int(input("\nINGRESE LA CONSIDERACION DE STOCK BAJO: "))
 
     try:
         limite = int(input("\nINGRESE LA CONSIDERACION DE STOCK BAJO: "))
