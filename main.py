@@ -1,17 +1,25 @@
 import os
-from sqlite3 import Connection
+from datetime import datetime
 from colorama import init, Fore, Style
 from modulos import *
 from conexion_db import db
+from datetime import datetime         
 
 init(autoreset=True)
 
 def mostrar_menu():
+    # ── Obtener fecha y hora actual ──
+    ahora = datetime.now()
+    fecha = ahora.strftime("%d/%m/%Y")
+    hora = ahora.strftime("%H:%M:%S")
 
     ancho = 40
     linea = "═" * ancho
 
+    # ── Mostrar fecha y hora encima del menú ──
     print()
+    print(linea)
+    print(f"  {Fore.CYAN}Fecha: {fecha}   {Fore.YELLOW}Hora: {hora}")
     print(linea)
     print(Fore.YELLOW + "    SISTEMA DE GESTION DE PRODUCTOS     ")
     print(linea)
@@ -23,8 +31,7 @@ def mostrar_menu():
     print("  6. Reporte de stock bajo               ")
     print("  0. Salir                               ")
     print(linea)
-    
-      
+
 # ─── PROGRAMA PRINCIPAL ───
 while True:
     os.system("cls")
@@ -52,4 +59,3 @@ while True:
     else:
         print("✗ Opción inválida. Intente de nuevo.")
         input("\nPresione Enter para volver al menú...")
-

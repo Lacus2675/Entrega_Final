@@ -3,6 +3,7 @@ from pathlib import Path
 from sqlite3 import connect
 from colorama import Back, init, Fore, Style
 from conexion_db import db
+from datetime import datetime
 
 # Obtener el cursor (con manejo de errores)
 try:
@@ -545,11 +546,10 @@ def buscar():
 #################################################################################################################
 #Reporte de stock
 def reporte():
-    import os
-    from pathlib import Path
-    import sqlite3
-    from colorama import init, Fore, Style
-
+    ahora = datetime.now()
+    fecha = ahora.strftime("%d/%m/%Y")
+    hora = ahora.strftime("%H:%M:%S")
+ 
     init(autoreset=True)
     os.system("cls")
         #limite = int(input("\nINGRESE LA CONSIDERACION DE STOCK BAJO: "))
@@ -625,6 +625,7 @@ def reporte():
 
     # Informe en txt
     print()
+
     informe = input("¿Desea exportar el stock bajo a un archivo? (S/N): ").strip().upper()
 
     if informe == "S":
@@ -635,6 +636,9 @@ def reporte():
         
         try:
             with open(ruta_archivo, 'w', encoding='utf-8') as archivo:
+                
+                archivo.write(f"FECHA : {fecha} HORA : {hora}\n")
+   
                 archivo.write(f"REPORTE DE STOCK BAJO (≤ {limite} UNIDADES)\n")
                 archivo.write(f"CANTIDAD DE PRODUCTOS SIN STOCK   : {sin_stock}\n")
                 archivo.write(f"TOTAL DE PRODUCTOS CON STOCK BAJO : {len(resultados)}\n")
